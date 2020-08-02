@@ -7,4 +7,4 @@ class ImageAdmin(admin.ModelAdmin):
 
 admin.site.register(Location),
 admin.site.register(categories),
-admin.site.register(Image),
+admin.site.register(Image,ImageAdmin),

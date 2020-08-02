@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.http  import HttpResponse
+from django.http  import HttpResponse,Http404
 import datetime as dt
 # from .models import Image
 
@@ -12,10 +12,10 @@ def images(request):
 
     return render(request,'photos.html',{"images":images})
 
-# def search_results(request):
-#     if 'photos' in request.GET and request.GET["photos"]:
-#         search_term = request.GET.get("photos")
-#         searched_photos = Photo.search_by_category(search_term)
-#         message = f"{search_term}"
+def search_results(request):
+    if 'photos' in request.GET and request.GET["photos"]:
+        search_term = request.GET.get("photos")
+        searched_photos = Photo.search_by_category(search_term)
+        message = f"{search_term}"
 
-#         return render(request,'search.html',{"message":message,"photos":searched_images})
+        return render(request,'search.html',{"message":message,"photos":searched_images})

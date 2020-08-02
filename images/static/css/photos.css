@@ -1,26 +1,26 @@
 h1{
     font-size: 75px;
-    font-family: 'Tangerine', cursive;
+    font-family: 'Courier New', Courier, monospace;
     color:rgb(207, 205, 178);
 }
 h3,h2{
     font-size: 40px;
     color:rgb(207, 205, 178);
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Courier New', Courier, monospace;
 }
 h4{
     color:rgb(207, 205, 178);;
     font-size: 25px;
-    font-family: 'Neucha', cursive;
+    font-family: fantasy;
 }
 h5{
     color:rgb(207, 205, 178);;
     font-size: 20px;
-    font-family: 'Overlock', cursive;
+    font-family: 'Courier New', Courier, monospace;
 }
 a{
     color:rgb(128, 128, 128);
-    font-family: 'Cormorant Garamond', serif;
+    font-family: fantasy;
   
 }
 body,html{
