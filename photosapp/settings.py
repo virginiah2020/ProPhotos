@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'photosapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('photosapp'),
-        'USER': config('postgres'),
-        'PASSWORD': config('Access'),
-        'HOST': config('localhost'),
+        'NAME': 'photosapp',
+        'USER': 'postgres',
+        'PASSWORD':'Access',
+        'HOST': 'localhost',
         'PORT': '',
     }
 }
