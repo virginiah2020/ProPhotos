@@ -1,21 +1,29 @@
 from django.shortcuts import render,redirect
 from django.http  import HttpResponse,Http404
 import datetime as dt
-# from .models import Image
+from .models import Image,Location
+# from decouple import config,Csv
+
 
 
 # Create your views here.
 def images(request):
 
-    # images=Image.objects.all()
-    # ALLOWED_HOSTS = config('ALLOWED_HOSTS')
+    images = Image.objects.all()
+    # locations = Location.get_locations()
+    # print(locations)
+    return render(request, 'images.html', {'images': images[::-1]})
 
-    return render(request,'photos.html',{"images":images})
 
 def search_results(request):
-    if 'photos' in request.GET and request.GET["photos"]:
-        search_term = request.GET.get("photos")
-        searched_photos = Photo.search_by_category(search_term)
+    if 'image' in request.GET and request.GET["image"]:
+        search_term = request.GET.get("image")
+        searched_images = Image.search_by_category(search_term)
         message = f"{search_term}"
+        print(searched_images)
 
-        return render(request,'search.html',{"message":message,"photos":searched_images})
+        return render(request,'images/search_results.html',{"message":message,"images":searched_images})
+
+    else:
+        message="You haven't searched for any term"
+        return render(request,'images/search_results.html',{"message":message})

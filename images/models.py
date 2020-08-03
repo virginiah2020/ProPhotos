@@ -13,12 +13,16 @@ class Location(models.Model):
     class Meta:
         ordering = ['location']
 
+
     def save_location(self):
         self.save()
 
     @classmethod
     def delete_location(cls,location):
         cls.objects.filter(location=location).delete()
+    
+   
+
 class categories(models.Model):
     category = models.CharField(max_length=30)
 
@@ -35,21 +39,23 @@ class categories(models.Model):
 
 class Image(models.Model):
     title=models.CharField(max_length=60)
-    # categories = models.ManyToManyField(categories)
-    # location = models.ForeignKey(Location,on_delete=models.CASCADE)
+    categories = models.ManyToManyField(categories)
     image = models.ImageField(upload_to='images/')
     post_date = models.DateTimeField(auto_now_add=True)
-
+    location = models.ForeignKey(Location,on_delete=models.CASCADE)
+    
     def __str__(self):
         return self.title
 
     def save_image(self):
         self.save()
 
+
     @classmethod
     def all_images(cls):
         images = cls.objects.all()
         return images
+
 
     @classmethod
     def search_by_category(cls,search_term):
